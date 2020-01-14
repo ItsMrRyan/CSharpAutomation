@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace c_
 {
@@ -19,13 +20,13 @@ namespace c_
         public void TestAgeRange()
         {
             driver.Url = "http://automationpractice.com/index.php";
-            IWebElement logo = driver.FindElement(By.Id("header_logo"));
-            string LogoID = logo.GetAttribute("header_logo");
-            Assert.
+            Thread.Sleep(50);
+            Assert.IsTrue(driver.FindElement(By.Id("header_logo")).Displayed);
+        }
 
         [OneTimeTearDown]
         public void Close(){
-            //driver.Close()
+            driver.Close();
         }
     }
 }
